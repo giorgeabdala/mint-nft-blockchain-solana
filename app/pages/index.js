@@ -9,14 +9,25 @@ const Home = () => {
   const WalletMultiButtonDynamic = dynamic(
     async () => (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
     { ssr: false }
-  )
+  );
+
+  const renderNotConnectedContainer = () => (
+    <div>
+      <img src="https://media.giphy.com/media/eSwGh3YK54JKU/giphy.gif" alt="emoji" />
+      <div className="button-container">
+        <WalletMultiButtonDynamic className="cta-button connect-wallet-button" />
+      </div>
+        
+    </div>
+  );
 
   return (
-    <div className="App">
-      <div className="container">
+    <div className="App bg-gradient-to-r from-zinc-500 via-black to-zinc-500">
+      <div className="container ">
         <div className="header-container">
-          <p className="header">🍭 Máquina de Doces</p>
+          <p className="header">🍭 Candy Drop</p>
           <p className="sub-text">Máquina de doces para mintar NFTs</p>
+          {renderNotConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src="twitter-logo.svg" />
