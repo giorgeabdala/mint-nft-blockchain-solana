@@ -1,5 +1,10 @@
 Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+Node vernosion: v16.16.0
+Sugar version: sugar-cli 1.2.2
+
+
 ## Começando
 
 Primeiro, execute o servidor de desenvolvimento:
@@ -10,22 +15,8 @@ npm run dev
 yarn dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
-
-Você pode começar a editar a página modificando pages/index.js. A página é atualizada automaticamente conforme você edita o arquivo.
-
-[Rotas de API](https://nextjs.org/docs/api-routes/introduction) podem ser acessadas em [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Este endpoint pode ser editado em `pages/api/hello.js`.
 
 O diretório `pages/api` é mapeado para `/api/*`. Arquivos neste diretório são tratados como rotas da [API routes](https://nextjs.org/docs/api-routes/introduction) em vez de páginas React.
-
-## Aprenda Mais
-
-Para saber mais sobre o Next.js, dê uma olhada nos seguintes recursos:
-
-- [Documentaão Next.js](https://nextjs.org/docs) - aprenda sobre os recursos e a API do Next.js.
-- [Aprenda Next.js](https://nextjs.org/learn) - um tutorial interativo de Next.js.
-
-Você pode conferir o [repositório do Next.js no GitHub](https://github.com/vercel/next.js/) - seus comentários e contribuições são bem-vindos!
 
 
 ## Deploy no Vercel

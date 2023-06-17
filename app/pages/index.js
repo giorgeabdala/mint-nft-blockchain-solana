@@ -1,15 +1,21 @@
 import React from "react"
 import dynamic from "next/dynamic"
+import { useWallet } from "@solana/wallet-adapter-react";
+import CandyMachine from "../components/CandyMachine";
+
 
 // Constants
-const TWITTER_HANDLE = "web3dev_"
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`
+const TWITTER_HANDLE = "GiorgeAbdala"
+const TWITTER_LINK = `https://twitter.com/@AbdalaGiorge`;
+
 
 const Home = () => {
   const WalletMultiButtonDynamic = dynamic(
     async () => (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
     { ssr: false }
   );
+
+  const wallet = useWallet();
 
   const renderNotConnectedContainer = () => (
     <div>
@@ -22,12 +28,14 @@ const Home = () => {
   );
 
   return (
-    <div className="App bg-gradient-to-r from-zinc-500 via-black to-zinc-500">
-      <div className="container ">
+    <div className="App">
+      <div className="container">
         <div className="header-container">
           <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">Máquina de doces para mintar NFTs</p>
-          {renderNotConnectedContainer()}
+          <p className="sub-text">Máquina para mintar NFTs</p>
+          {/*renderizar candyMachine si esta conectado*/}
+
+          {wallet.publicKey ? <CandyMachine walletAddress={wallet} /> : renderNotConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src="twitter-logo.svg" />
@@ -36,7 +44,7 @@ const Home = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { Program, AnchorProvider, web3 } from "@project-serum/anchor";
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { sendTransactions } from "./connection";
-import "./CandyMachine.css";
+
+
 import {
     candyMachineProgram,
     TOKEN_METADATA_PROGRAM_ID,
@@ -20,12 +21,69 @@ const opts = {
 };
 
 const CandyMachine = ({ walletAddress }) => {
+
+    useEffect (() => {
+        getCandyMachineState();
+    }, []);
+
+    const getProvider = () => {
+        const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST;
+        // Crie um novo objeto de conexão
+        const connection = new Connection(rpcHost);
+        
+        // Crie um novo objeto de provedor Solana
+        const provider = new AnchorProvider(
+          connection,
+          window.solana,
+          opts.preflightCommitment
+        );
+      
+        return provider;
+      };
+
+
+const getCandyMachineState = async () => {
+    const provider = getProvider();
+    const idl = await Program.fetchIdl(candyMachineProgram, provider);
+    const program = new Program(idl, candyMachineProgram, provider);
+  
+    // Busque os metadados da sua Candy Machine com o comando fetch
+    const candyID = process.env.NEXT_PUBLIC_CANDY_MACHINE_ID;
+    const candyMachine = await program.account.candyMachine.fetch(candyID);
+
+    // Analise todos os nossos metadados e crie um log
+    const itemsAvailable = candyMachine.data.itemsAvailable.toNumber();
+    const itemsRedeemed = candyMachine.itemsRedeemed.toNumber();
+    const itemsRemaining = itemsAvailable - itemsRedeemed;
+    const goLiveData = candyMachine.data.goLiveDate.toNumber();
+    const presale =
+      candyMachine.data.whitelistMintSettings &&
+      candyMachine.data.whitelistMintSettings.presale &&
+      (!candyMachine.data.goLiveDate ||
+        candyMachine.data.goLiveDate.toNumber() > new Date().getTime() / 1000);
+    
+    // Usaremos isso mais tarde em nossa interface do usuário, então vamos gerar isso agora
+    const goLiveDateTimeString = `${new Date(
+      goLiveData * 1000
+    ).toGMTString()}`
+  
+    console.log({
+      itemsAvailable,
+      itemsRedeemed,
+      itemsRemaining,
+      goLiveData,
+      goLiveDateTimeString,
+      presale,
+    });
+  };
+
     const getCandyMachineCreator = async (candyMachine) => {
         const candyMachineID = new PublicKey(candyMachine);
         return await web3.PublicKey.findProgramAddress([Buffer.from("candy_machine"), candyMachineID.toBuffer()], candyMachineProgram);
     };
 
     const getMetadata = async (mint) => {
+        console.log("getMetadata");
         return (
             await PublicKey.findProgramAddress(
                 [Buffer.from("metadata"), TOKEN_METADATA_PROGRAM_ID.toBuffer(), mint.toBuffer()],
@@ -35,6 +93,7 @@ const CandyMachine = ({ walletAddress }) => {
     };
 
     const getMasterEdition = async (mint) => {
+        console.log("getMasterEdition");
         return (
             await PublicKey.findProgramAddress(
                 [Buffer.from("metadata"), TOKEN_METADATA_PROGRAM_ID.toBuffer(), mint.toBuffer(), Buffer.from("edition")],
@@ -69,6 +128,7 @@ const CandyMachine = ({ walletAddress }) => {
     };
 
     const mintToken = async () => {
+        console.log("mintToken");
         const mint = web3.Keypair.generate();
 
         const userTokenAccountAddress = (await getAtaForMint(mint.publicKey, walletAddress.publicKey))[0];
