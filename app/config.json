@@ -11,7 +11,7 @@
   "solTreasuryAccount": "E56yPmNiYHhHweL9gNT3Gtd6os2V8VF94MNDocv3CHia",
   "splTokenAccount": null,
   "splToken": null,
-  "goLiveDate": "2022-05-02T18:00:00+00:00",
+  "goLiveDate": "2023-05-02T18:00:00+00:00",
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,
@@ -23,6 +23,5 @@
   "sellerFeeBasisPoints": 1,
   "awsConfig": null,
   "nftStorageAuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDQ1RDJiNzk1ZmMzMGMwZmM0OGMwMDgyQzIzN0REODk2ZWRENjA5ZjgiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4NTQ5ODY2NDMyOCwibmFtZSI6InNvbGFuYS13ZWIzZGV2In0.g8zecAST9tvG3nLIhwJ4ltsk5QzUs-UHyhfqS5zAxAI",
-  "shdwStorageAccount": null,
-  "pinataConfig": null
+  "shdwStorageAccount": null
 }

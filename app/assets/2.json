@@ -1,7 +1,7 @@
 {
-    "name": "start_wars_nft2",
+    "name": "stwars_nft2",
     "symbol": "SWNFT",
-    "description": "Coleção de 10 números na blockchain. Este é o número 3/10.",
+    "description": "Coleção de 3 nfts na blockchain. Este é o número 3/3.",
     "image": "2.png",
     "attributes": [
       {
@@ -15,7 +15,6 @@
           "uri": "2.png",
           "type": "image/png"
         }
-      ],
-      "category": "image"
+      ]
     }
   }

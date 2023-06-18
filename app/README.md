@@ -1,7 +1,7 @@
 Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-Node vernosion: v16.16.0
+Node vernosion: v20.2.0
 Sugar version: sugar-cli 1.2.2
 
 
