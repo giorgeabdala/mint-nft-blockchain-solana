@@ -1,16 +1,44 @@
-# Projecto Solana NFT Drop WEB3DEV
-### Bem vindo 👋
+# Solana NFT Minting Website
 
-Para iniciar esse bu8ld, clone esse repo e execute esses comandos:
+This project is the result of completing the Solana NFT bootcamp offered by [Web3Dev](https://build.w3d.community/courses/Solana_NFTs). The bootcamp focused on building a website for minting NFTs on the Solana blockchain using Next.js and Metaplex.
 
-1. entra na pasta `app`
-2. Rode `npm install` no diretório raiz
-3. Rode `npm run dev`  para iniciar o projeto
-4. Bora codar!
+## Description
 
-### O que é essa pasta .vscode?
-Se você usa o VSCode para construir seu aplicativo, incluímos uma lista de extensões sugeridas que irão ajudá-lo a construir este projeto! Quando você abrir este projeto no VSCode, verá um pop-up perguntando se deseja baixar as extensões recomendadas :).
+The Solana NFT Minting Website is a user-friendly platform that allows users to mint their own NFTs on the Solana blockchain. It leverages the power of Next.js for server-side rendering and Metaplex for NFT metadata management and storage. With this website, users can easily create, manage, and sell their unique digital assets.
 
-### Dúvidas?
-Se tiver algumas dúvidas, certifique-se de visitar a [plataforma de build](https://bootcamp.web3dev.com.br) e vincular sua conta do Discord para que possa ter acesso a canais úteis e aos monitores da comunidade!
+## Features
 
+- Seamless integration with the Solana blockchain
+- User authentication and authorization
+- NFT minting with customizable metadata
+- NFT listing and marketplace functionality
+- Smooth user interface and responsive design
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+2. Install dependencies: `npm install`
+3. Configure the environment variables
+4. Start the development server: `npm run dev`
+
+## Config
+1 - sugar upload
+2 - sugar deploy
+3 - sugar verify
+4 - sugar update
+5 -  Create a .env.local file with the following content:
+
+NEXT_PUBLIC_CANDY_MACHINE_ID=<ID Candy Machine>
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+NEXT_PUBLIC_SOLANA_RPC_HOST=https://metaplex.devnet.rpcpool.com/
+
+## Contributing
+
+Contributions are welcome! If you have any ideas or improvements, please open an issue or submit a pull request. Make sure to follow the project's code of conduct.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+
+![NFTs](public/nfts.png)
